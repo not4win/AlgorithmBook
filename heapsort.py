@@ -34,7 +34,11 @@ def heapSort(arr):
         heapify(arr, i, 0)
  
 # Driver code to test above
-arr = [ 12, 11, 13, 5, 6, 7]
+arr = []
+n=int(input("enter number of elements"))
+print("enter elements")
+for i in range(n):
+    arr.append(int(input()))
 heapSort(arr)
 n = len(arr)
 print (" The Sorted array is")
