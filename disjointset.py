@@ -9,6 +9,7 @@ class disjointop:
         self.mem=[None for i in range(n)]
         for i in range(n):
             self.mem[i]=disjoint(i)
+        self.visited=[False for i in range(n)]
             
     def findset(self,x):
         if x.parent==x.me:
@@ -32,15 +33,23 @@ class disjointop:
     def count(self,key):
         s=self.findset(key)
         count=0
+        st=""
         for i in self.mem:
             if self.findset(i)==s:
                 count=count+1
-        return count
-y=disjointop(7)
-y.merge(y.mem[0],y.mem[1])
-y.merge(y.mem[1],y.mem[2])
-y.merge(y.mem[2],y.mem[3])
-y.merge(y.mem[5],y.mem[4])
+                st=st+str(i.me)+" "
+        return count,st
 
-print(y.count(y.mem[6]))
+a=input()
+a=a.split(' ')
+y=disjointop(int(a[0]))
+for i in range(int(a[1])):
+    b=input()
+    b=b.split(' ')
+    if b[0]=='Q':
+        c,d=y.count(y.mem[int(b[1])-1])
+        print('the number of elements in this set',c)
+        print('the elements are',d)
+    if b[0]=='M':
+        y.merge(y.mem[int(b[1])-1],y.mem[int(b[2])-1])
 
