@@ -17,18 +17,20 @@ class disjointop:
 
         else:
             return self.findset(x.parent)
-            print('x')
+            
             
     def merge(self,x,y):
         rx= self.findset(x)
         ry=self.findset(y)
-        if rx.rank>ry.rank:
-            ry.parent=rx
-        elif ry.rank>rx.rank:
-            rx.parent=ry
-        else:
-            ry.parent=rx
-            rx.rank=rx.rank+1
+        if(rx.me!=ry.me):
+            
+            if rx.rank>ry.rank:
+                ry.parent=rx
+            elif ry.rank>rx.rank:
+                rx.parent=ry
+            else:
+                ry.parent=rx
+                rx.rank=rx.rank+1
             
     def count(self,key):
         s=self.findset(key)
