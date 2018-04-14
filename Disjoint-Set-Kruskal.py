@@ -22,7 +22,6 @@ class dsx:
 
         else:
             return self.findset(x.parent)
-            print('x')
     def union(self,x,y):
         rx= self.findset(x)
         ry=self.findset(y)
@@ -35,7 +34,6 @@ class dsx:
             rx.rank=rx.rank+1
 
     def edgesx(self,a,b,size):
-        self.ew[a][b]=size
         self.W.append(edges(a,b,size))
         return
 
