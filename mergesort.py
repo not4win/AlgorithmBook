@@ -2,9 +2,10 @@ n=int(input("enter the elements of the array: "))
 a=[]
 inversions=0
 print("enter elements")
+#accepts input
 for i in range(n):
     a.append(int(input()))
-
+#function to merge two sorted arrays
 def merge(a,l,h):
     if(l<h):
         mid=(l+h)//2
